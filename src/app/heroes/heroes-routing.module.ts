@@ -9,8 +9,8 @@ import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {
-    path: '', 
-    //ruta padre
+    //ruta padre -- 
+    path: '',   
     component: HomeComponent,
     //rutas hijas
     children: [
