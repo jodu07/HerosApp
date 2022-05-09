@@ -12,9 +12,9 @@ export class HeroesService {
 
   api = 'localhost:3000';
 
-  getHeroes():Observable<Heroe>{
+  getHeroes():Observable<Heroe[]>{
     //const url = `${this.api}/heroes`;
-    return this.http.get<Heroe>('http://localhost:3000/heroes');
+    return this.http.get<Heroe[]>('http://localhost:3000/heroes');
   }
 
 

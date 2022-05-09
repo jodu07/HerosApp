@@ -13,19 +13,25 @@ export class ListadoComponent implements OnInit {
 
   listHeroes: Heroe[]=[];
 
+  listNombresheroes: string[]=[];
+
   constructor(private _heroesService: HeroesService
               ) { }
 
 
   obtenerheroes(){
     this._heroesService.getHeroes()
-    .subscribe( (dataHeroes: any) => 
+    .subscribe( dataHeroes  => 
     
      // console.log(dataHeroes)
-     this.listHeroes.push(dataHeroes)
+
+     dataHeroes.forEach(element => {
+      this.listNombresheroes.push(element.superhero) ;
+     })     
      
     )
-    console.log(this.listHeroes);
+    console.log('lista', this.listNombresheroes);
+    
   }
 
   ngOnInit(): void {
