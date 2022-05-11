@@ -9,7 +9,7 @@ import { Heroe } from '../../interfaces/heroe.interface';
 export class HeroeTarjetaComponent implements OnInit {
 
   @Input() listHeroes: Heroe[]= [];
-  
+  @Input() heroe!: Heroe;
 
   constructor() { }
 
