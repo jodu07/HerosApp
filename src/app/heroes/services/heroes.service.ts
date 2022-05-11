@@ -17,5 +17,10 @@ export class HeroesService {
     return this.http.get<Heroe[]>('http://localhost:3000/heroes');
   }
 
+  getHeroe(id: string):Observable<Heroe>{
+    const url= `${this.api}/:${id}`
+    return this.http.get<Heroe>((url));
+  }
+
 
 }
