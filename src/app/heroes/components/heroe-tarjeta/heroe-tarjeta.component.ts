@@ -4,11 +4,11 @@ import { Heroe } from '../../interfaces/heroe.interface';
 @Component({
   selector: 'app-heroe-tarjeta',
   templateUrl: './heroe-tarjeta.component.html',
-  styleUrls: ['./heroe-tarjeta.component.css']
+  styleUrls: []
 })
 export class HeroeTarjetaComponent implements OnInit {
 
-  @Input() listHeroes: Heroe[]= [];
+ 
   @Input() heroe!: Heroe;
 
   constructor() { }
