@@ -1,5 +1,5 @@
 
-    
+    <h1>heroe</h1>
     <mat-card>
         <mat-card-header>
           
@@ -17,13 +17,16 @@
         </mat-card-content>
         <mat-card-actions>
           <button
-          routerLink="editar/:heroe.id"
+          [routerLink]="['/heroes/', heroe.id]"
           color="warn"
-          mat-button>Leer más...</button>
+          mat-button>Leer más...
+        </button>
+
           <button
           color="info" 
           mat-button 
-          [routerLink]="[':', 'heroe.id']">Editar Héroe</button>
+          [routerLink]="['/heroes/editar/', heroe.id]"
+          >Editar Héroe</button>
         </mat-card-actions>
       </mat-card> 
 
