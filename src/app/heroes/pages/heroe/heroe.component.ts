@@ -13,7 +13,7 @@ export class HeroeComponent implements OnInit {
 
   heroe!: Heroe;  
   
-  idheroe: string = '';
+  idHeroe: string = '';
 
   constructor(private _heroesService: HeroesService,
               private activatedRoute: ActivatedRoute) { }
@@ -24,13 +24,18 @@ export class HeroeComponent implements OnInit {
     this.activatedRoute.params
     .subscribe( ({id}) => {
       console.log('id', id);
-       this.idheroe = id;
-      console.log(this.idheroe);
-    /*  this._heroesService.getHeroe(this.idHeroe)
-     .subscribe( heroe =>
-      this.heroe = heroe
+       this.idHeroe = id;
+      console.log(this.idHeroe);
 
-    )  */  
+      this._heroesService.getHeroe(this.idHeroe)
+     .subscribe( heroe =>{
+      console.log(heroe);
+      this.heroe = heroe;
+
+     }
+      
+
+    )    
   }   
     )
   }

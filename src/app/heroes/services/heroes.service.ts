@@ -10,7 +10,7 @@ export class HeroesService {
 
   constructor(private http: HttpClient) { }
 
-  api = 'localhost:3000';
+  api = 'http://localhost:3000/';
 
   getHeroes():Observable<Heroe[]>{
     //const url = `${this.api}/heroes`;
@@ -18,7 +18,7 @@ export class HeroesService {
   }
 
   getHeroe(id: string):Observable<Heroe>{
-    const url= `${this.api}/:${id}`
+    const url= `${this.api}heroes/${id}`
     return this.http.get<Heroe>((url));
   }
 
