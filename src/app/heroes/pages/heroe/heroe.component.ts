@@ -27,7 +27,7 @@ export class HeroeComponent implements OnInit {
        this.idHeroe = id;
       console.log(this.idHeroe);
 
-      this._heroesService.getHeroe(this.idHeroe)
+      this._heroesService.getHeroeById(this.idHeroe)
      .subscribe( heroe =>{
       console.log(heroe);
       this.heroe = heroe;

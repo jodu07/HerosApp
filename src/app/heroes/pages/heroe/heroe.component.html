@@ -1,8 +1,18 @@
 
+<mat-grid-list cols="1" *ngIf="!heroe; else divHeroe">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+
+</mat-grid-list>
 
 
 
-<h1>Héroe {{heroe.superhero}} </h1>
+<ng-template #divHeroe>
+    <h1>Héroe {{heroe.superhero}} </h1>
+</ng-template>
+
+
 
 <!-- 
 <mat-divider></mat-divider>

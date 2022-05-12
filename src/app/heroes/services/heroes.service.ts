@@ -10,15 +10,15 @@ export class HeroesService {
 
   constructor(private http: HttpClient) { }
 
-  api = 'http://localhost:3000/';
+  api = 'http://localhost:3000/heroes';
 
   getHeroes():Observable<Heroe[]>{
-    //const url = `${this.api}/heroes`;
-    return this.http.get<Heroe[]>('http://localhost:3000/heroes');
+    const url = `${this.api}/`;
+    return this.http.get<Heroe[]>(url);
   }
 
-  getHeroe(id: string):Observable<Heroe>{
-    const url= `${this.api}heroes/${id}`
+  getHeroeById(id: string):Observable<Heroe>{
+    const url= `${this.api}/${id}`
     return this.http.get<Heroe>((url));
   }
 
