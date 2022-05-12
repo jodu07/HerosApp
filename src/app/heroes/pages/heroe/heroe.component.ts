@@ -22,25 +22,16 @@ export class HeroeComponent implements OnInit {
  
   ngOnInit(): void {
     this.activatedRoute.params
-    .subscribe( (idHeroe) =>{
-
-      console.log('idheroe', idHeroe);
-
-      this.idheroe = idHeroe['id'];
-
+    .subscribe( ({id}) => {
+      console.log('id', id);
+       this.idheroe = id;
       console.log(this.idheroe);
-
-
-
-    /*  this._heroesService.getHeroe(idHeroe)
+    /*  this._heroesService.getHeroe(this.idHeroe)
      .subscribe( heroe =>
       this.heroe = heroe
 
-    )  */
-  
-  
-  }
-    
+    )  */  
+  }   
     )
   }
 
