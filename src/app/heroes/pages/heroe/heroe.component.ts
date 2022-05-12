@@ -11,7 +11,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeroeComponent implements OnInit {
 
-  heroe!: Heroe;   
+  heroe!: Heroe;  
+  
+  idheroe: string = '';
 
   constructor(private _heroesService: HeroesService,
               private activatedRoute: ActivatedRoute) { }
@@ -20,13 +22,24 @@ export class HeroeComponent implements OnInit {
  
   ngOnInit(): void {
     this.activatedRoute.params
-    .subscribe( ({idHeroe}) =>{
+    .subscribe( (idHeroe) =>{
 
-      this._heroesService.getHeroe(idHeroe)
+      console.log('idheroe', idHeroe);
+
+      this.idheroe = idHeroe['id'];
+
+      console.log(this.idheroe);
+
+
+
+    /*  this._heroesService.getHeroe(idHeroe)
      .subscribe( heroe =>
       this.heroe = heroe
 
-    )}
+    )  */
+  
+  
+  }
     
     )
   }
