@@ -7,7 +7,12 @@ import { switchMap, tap } from 'rxjs/operators';
 @Component({
   selector: 'app-heroe',
   templateUrl: './heroe.component.html',
-  styles: [
+  styles: [`
+     img {
+       width: 100%;
+       border-radius: 5px
+     }
+  `
   ]
 })
 export class HeroeComponent implements OnInit {
