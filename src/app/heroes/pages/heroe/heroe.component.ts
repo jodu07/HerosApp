@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroesService } from '../../services/heroes.service';
 import { Heroe, Publisher } from '../../interfaces/heroe.interface';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators'; 
 
 @Component({
@@ -22,7 +22,8 @@ export class HeroeComponent implements OnInit {
   idHeroe: string = '';
 
   constructor(private _heroesService: HeroesService,
-              private activatedRoute: ActivatedRoute) { }              
+              private activatedRoute: ActivatedRoute,
+              private router: Router) { }              
  
   ngOnInit(): void {
 
@@ -47,6 +48,10 @@ export class HeroeComponent implements OnInit {
     )    
   }   
     )*/
+  }
+
+  regresar(){
+    this.router.navigate(['./heroes/listado']);
   }
 }
 
