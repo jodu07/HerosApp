@@ -7,7 +7,7 @@
   <div>
       <h3>Buscador</h3>
         {{termino}}
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field appearance="fill">
         <mat-label>Number</mat-label>
         <input
           type="text"          
@@ -16,6 +16,7 @@
           matInput
           [(ngModel)]="termino"
           [matAutocomplete]="auto"
+          (input)="buscando()"
         />
         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
           <mat-option *ngFor="let heroe of heroes " [value]="heroe">
