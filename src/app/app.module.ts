@@ -19,7 +19,7 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule    
+    HttpClientModule        
   ],
   providers: [],
   bootstrap: [AppComponent]
