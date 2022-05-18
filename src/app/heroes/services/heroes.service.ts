@@ -25,9 +25,9 @@ export class HeroesService {
     return this.http.get<Heroe>((url));
   }
 
-  buscarHeroePorTermino(termino:string):Observable<Heroe>{
-    const url= `${this.baseUrl}/heroes?q=${termino}`;
-    return this.http.get<Heroe>(url);
+  buscarHeroePorTermino(termino:string):Observable<Heroe[]>{
+    const url= `${this.baseUrl}/heroes?q=${termino}&_limit=6`;
+    return this.http.get<Heroe[]>(url);
   }
 
 
