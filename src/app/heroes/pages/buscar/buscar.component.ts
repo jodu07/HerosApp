@@ -14,11 +14,13 @@ export class BuscarComponent implements OnInit {
 
   heroes: Heroe[]=[];
 
+
+
   constructor(private _heroesService: HeroesService) { }
 
   buscando(){
-    this._heroesService.getHeroes()
-       .subscribe( heroes => this.heroes = heroes);
+    this._heroesService.buscarHeroePorTermino(this.termino)
+       .subscribe( heroe => console.log(heroe) );
   }
 
   ngOnInit(): void {
