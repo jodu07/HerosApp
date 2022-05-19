@@ -25,14 +25,19 @@
           <mat-option *ngFor="let heroe of heroes " [value]="heroe">
             {{ heroe.superhero }}
           </mat-option>
+          <mat-option value="">
+            <h3>No se encontro nada con el termino: {{termino}}</h3>
+        </mat-option>
+
         </mat-autocomplete>        
       </mat-form-field>
-      <div *ngIf="termino && heroes.length === 0">
-          <h3>No se encontro nada con este termino: {{termino}}</h3>
+      
+      <div>
+        {{texto}}
       </div>
   <div>
       <pre>{{ heroeSeleccionado | json }} </pre>
   </div>
 </div>
 
-
+*ngIf="termino && heroes.length === 0"

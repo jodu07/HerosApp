@@ -14,7 +14,8 @@ export class BuscarComponent implements OnInit {
   termino: string = '';
   heroes: Heroe[]=[];
   heroeSeleccionado!: Heroe;
-  idHeroe: string = '';
+  texto: string = ''
+ 
 
   constructor(private _heroesService: HeroesService) { }
 
@@ -26,20 +27,20 @@ export class BuscarComponent implements OnInit {
 
   opcionSeleccionada(event: MatAutocompleteSelectedEvent ){
 
+    if(event.option.value === null){
+      this.texto = 'vacio'
+    }else{
+      const heroe: Heroe = event.option.value;  
+      console.log(heroe);
+      this.termino = heroe.superhero;    
     
-    const heroe: Heroe = event.option.value;  
-    console.log(heroe);
-    this.termino = heroe.superhero;    
-    
-    this._heroesService.getHeroeById(heroe.id!)
+      this._heroesService.getHeroeById(heroe.id!)
        .subscribe( heroe => { this.heroeSeleccionado = heroe;
        // console.log('heroe: ', this.heroeSeleccionado); 
-       });    
-  }
+       });   
+    } 
+    }
 
-  
-
-  
   ngOnInit(): void {
   }
 
