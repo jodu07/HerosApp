@@ -13,22 +13,23 @@ export class BuscarComponent implements OnInit {
 
   termino: string = '';
   heroes: Heroe[]=[];
-  heroeSeleccionado!: Heroe;
-  texto: string = ''
+  heroeSeleccionado: Heroe | undefined;
+  textoVacio: string = ''
  
 
   constructor(private _heroesService: HeroesService) { }
 
   buscando(){
-    this._heroesService.getSugerencias(this.termino)
-       .subscribe( heroes => this.heroes = heroes );     
-      
+    this._heroesService.getSugerencias(this.termino.trim()) // trim() para quitar los espacios antes y despues del texto
+       .subscribe( heroes => this.heroes = heroes );      
   }
 
   opcionSeleccionada(event: MatAutocompleteSelectedEvent ){
 
-    if(event.option.value === ''){
-      this.texto = 'vacio'
+    if(!event.option.value){
+      this.heroeSeleccionado = undefined;
+      this.textoVacio = 'vacio';
+      return;
     }else{
       const heroe: Heroe = event.option.value;  
       console.log(heroe);
