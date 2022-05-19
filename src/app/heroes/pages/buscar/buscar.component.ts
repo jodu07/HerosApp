@@ -25,6 +25,8 @@ export class BuscarComponent implements OnInit {
   }
 
   opcionSeleccionada(event: MatAutocompleteSelectedEvent ){
+
+    
     const heroe: Heroe = event.option.value;  
     console.log(heroe);
     this.termino = heroe.superhero;    
