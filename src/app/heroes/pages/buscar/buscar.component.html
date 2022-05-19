@@ -1,43 +1,43 @@
 <div fxLayout="column">
   <div>
-      <h1>Buscador de Héroes</h1>
-      <mat-divider></mat-divider>
+    <h1>Buscador de Héroes</h1>
+    <mat-divider></mat-divider>
   </div>
 
   <div fxLayout="column">
-      <h3>Buscador</h3>
-        {{termino}}
-      <mat-form-field>
-        <mat-label>Number</mat-label>
-        <input
-          type="text"          
-          placeholder="Pick one"
-          aria-label="Number"
-          matInput
-          [(ngModel)]="termino"
-          [matAutocomplete]="auto"
-          (input)="buscando()"
-        />        
-        <mat-autocomplete autoActiveFirstOption 
-                          #auto="matAutocomplete"
-                          (optionSelected)="opcionSeleccionada( $event )"
-                          >
-          <mat-option *ngFor="let heroe of heroes " [value]="heroe">
-            {{ heroe.superhero }}
-          </mat-option>
-          <mat-option value="">
-            <h3>No se encontro nada con el termino: {{termino}}</h3>
+    <h3>Buscador</h3>
+    {{ termino }}
+    <mat-form-field>
+      <mat-label>Number</mat-label>
+      <input
+        type="text"
+        placeholder="Pick one"
+        aria-label="Number"
+        matInput
+        [(ngModel)]="termino"
+        [matAutocomplete]="auto"
+        (input)="buscando()"
+      />
+      <mat-autocomplete
+        autoActiveFirstOption
+        #auto="matAutocomplete"
+        (optionSelected)="opcionSeleccionada($event)"
+      >
+        <mat-option *ngFor="let heroe of heroes" [value]="heroe">
+          {{ heroe.superhero }}
         </mat-option>
+        <mat-option value="">
+          <h3>No se encontro nada con el termino: {{ termino }}</h3>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
 
-        </mat-autocomplete>        
-      </mat-form-field>
-      
-      <div>
-        {{texto}}
-      </div>
-  <div>
+    <div *ngIf="texto">
+      {{ texto }}
+    </div>
+
+    <div *ngIf="heroeSeleccionado">
       <pre>{{ heroeSeleccionado | json }} </pre>
+    </div>
   </div>
 </div>
-
-*ngIf="termino && heroes.length === 0"

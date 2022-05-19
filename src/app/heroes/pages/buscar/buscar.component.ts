@@ -27,7 +27,7 @@ export class BuscarComponent implements OnInit {
 
   opcionSeleccionada(event: MatAutocompleteSelectedEvent ){
 
-    if(event.option.value === null){
+    if(event.option.value === ''){
       this.texto = 'vacio'
     }else{
       const heroe: Heroe = event.option.value;  
