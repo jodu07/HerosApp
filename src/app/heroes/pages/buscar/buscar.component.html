@@ -5,13 +5,11 @@
   </div>
 
   <div fxLayout="column">
-    <h3>Buscador de Héroes</h3>
-    {{ termino }}
     <mat-form-field>
       <mat-label>Buscar Héroe</mat-label>
       <input
         type="text"
-        placeholder="Por favor ingrese nombre del Héroe"        
+        placeholder="Por favor ingrese nombre del Héroe"
         matInput
         [(ngModel)]="termino"
         [matAutocomplete]="auto"
@@ -27,7 +25,8 @@
         </mat-option>
         <mat-option
           value=""
-          *ngIf="heroes.length === 0 && termino.trim().length > 0">
+          *ngIf="heroes.length === 0 && termino.trim().length > 0"
+        >
           <h3>No se encontro nada con el termino: {{ termino }}</h3>
         </mat-option>
       </mat-autocomplete>
@@ -40,5 +39,8 @@
       <pre>{{ heroeSeleccionado | json }} </pre>
     </div>
 
+    <div *ngIf="heroeSeleccionado && termino === heroeSeleccionado.superhero">
+      <app-heroe-tarjeta [heroe]="heroeSeleccionado"></app-heroe-tarjeta>
+    </div>
   </div>
 </div>
