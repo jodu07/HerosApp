@@ -1,4 +1,4 @@
-<h1>Nuevo Héroe <small>Nombre heroe</small> </h1>
+<h1>Nuevo Héroe <small>{{heroe.superhero}} </small> </h1>
 
 <div fxLayout="row"
      fxLayoutGap="40px"
@@ -22,7 +22,8 @@
                 <mat-label>Alter Ego</mat-label>
                 <input matInput
                        type="text"
-                       required>
+                       required
+                       [(ngModel)]="heroe.alter_ego">
             </mat-form-field>
         </div>        
 
@@ -30,19 +31,22 @@
             <mat-label>First Appearance</mat-label>
             <input matInput
                    type="text"
-                   required>
+                   required
+                   [(ngModel)]="heroe.first_appearance">
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Characters</mat-label>
             <input matInput
                    type="text"
-                   required>
+                   required
+                   [(ngModel)]="heroe.characters">
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Publisher</mat-label>
-            <mat-select>
+            <mat-select required 
+                        [(ngModel)]="heroe.publisher">
                 <mat-option *ngFor="let item of publishers" 
                             [value]="item.id">
                             {{item.desc}}
@@ -54,7 +58,8 @@
             <mat-label>Foto URL</mat-label>
             <input matInput
                    type="url"
-                   required>
+                   required
+                   [(ngModel)]="heroe.alt_img">
         </mat-form-field>
 
         <br>

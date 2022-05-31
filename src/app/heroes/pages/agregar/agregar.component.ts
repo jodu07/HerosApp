@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Heroe, Publisher } from '../../interfaces/heroe.interface';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-agregar',
@@ -29,10 +30,12 @@ export class AgregarComponent implements OnInit {
     alt_img: ''
   }
 
-  constructor() { }
+  constructor( private _heroesService: HeroesService) { }
 
   saveHero(){
-    console.log(this.heroe.superhero);
+
+    this._heroesService.addHero(this.heroe)
+    .subscribe(heroe => console.log(heroe));
   }
 
   ngOnInit(): void {
