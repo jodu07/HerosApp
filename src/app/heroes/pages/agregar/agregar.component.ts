@@ -34,8 +34,12 @@ export class AgregarComponent implements OnInit {
 
   saveHero(){
 
+    if( this.heroe.superhero.trim().length === 0){
+      return;
+    }
+
     this._heroesService.addHero(this.heroe)
-    .subscribe(heroe => console.log(heroe));
+      .subscribe(heroe => console.log(heroe))       
   }
 
   ngOnInit(): void {
