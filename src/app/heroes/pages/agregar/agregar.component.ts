@@ -31,6 +31,10 @@ export class AgregarComponent implements OnInit {
 
   constructor() { }
 
+  saveHero(){
+    console.log(this.heroe.superhero);
+  }
+
   ngOnInit(): void {
   }
 

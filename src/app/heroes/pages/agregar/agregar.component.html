@@ -1,18 +1,21 @@
 <h1>Nuevo Héroe <small>Nombre heroe</small> </h1>
 
-<div fxLayout="row" fxLayoutGap="40px">
+<div fxLayout="row"
+     fxLayoutGap="40px"
+     fxLayout.xs="column">
 
     <div fxFlex="50"
          fxLayout="column">
 
         <div fxlayout="row"
-             fxLayout.lt-md="column"
+             fxLayout.xs="column"
              fxLayoutGap="20px">
-            <mat-form-field fxFlex="100">
+            <mat-form-field fxFlex="100" fxLayout.xs="column">
                 <mat-label>Super Héroe</mat-label>
                 <input matInput
                        type="text"
-                       required>
+                       required
+                       [(ngModel)]="heroe.superhero">
             </mat-form-field>
     
             <mat-form-field fxFlex="100">
@@ -56,11 +59,12 @@
 
         <br>
 
-        <button
-        mat-button>Guardar
+        <button mat-raised-button
+                color="primary"
+                (click)="saveHero()">
+            <mat-icon>edit</mat-icon>
+            Guardar
         </button>
-
-
         
     </div>
 
