@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Heroe, Publisher } from '../../interfaces/heroe.interface';
 
 @Component({
   selector: 'app-agregar',
@@ -17,7 +18,16 @@ export class AgregarComponent implements OnInit {
       id: 'Marvel Comics',
       desc: 'Marvel - Comics'
     }
-  ]
+  ];
+
+  heroe: Heroe = {
+    superhero: '',
+    alter_ego: '',
+    characters: '',
+    first_appearance: '',
+    publisher: Publisher.DCComics ,
+    alt_img: ''
+  }
 
   constructor() { }
 

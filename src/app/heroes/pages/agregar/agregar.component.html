@@ -47,12 +47,25 @@
             </mat-select>
         </mat-form-field>
 
+        <mat-form-field>
+            <mat-label>Foto URL</mat-label>
+            <input matInput
+                   type="url"
+                   required>
+        </mat-form-field>
+
+        <br>
+
+        <button
+        mat-button>Guardar
+        </button>
+
 
         
     </div>
 
     <div fxFlex="50">
-        2
+        <img [src]="heroe | imagen" alt="">
     </div>
 
 </div>
