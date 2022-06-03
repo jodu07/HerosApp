@@ -36,6 +36,11 @@ export class HeroesService {
     
   }
 
+  updateHeroe(id: string, heroe: Heroe){
+    const url = `${this.baseUrl}/heroes`;
+    return this.http.put(url+'/'+id, heroe);    
+  }  
+
 
 }
 
