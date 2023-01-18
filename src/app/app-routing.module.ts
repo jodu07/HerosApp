@@ -5,10 +5,22 @@ import { AuthRoutingModule } from './auth/auth-routing.module';
 
 
 const routes: Routes = [
-  {path: 'auth', loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)},
-  {path: 'heroes', loadChildren: () => import('./heroes/heroes.module').then( m => m.HeroesModule)},    
-  { path: '404', component: ErrorPageComponent },
-  { path: '**', redirectTo: '404'},
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule)
+  },
+  {
+    path: 'heroes',
+    loadChildren: () => import('./heroes/heroes.module').then( m => m.HeroesModule)
+  },    
+  { 
+    path: '404',
+    component: ErrorPageComponent
+  },
+  { 
+    path: '**',
+    redirectTo: '404'
+  },
 ];
 
 @NgModule({

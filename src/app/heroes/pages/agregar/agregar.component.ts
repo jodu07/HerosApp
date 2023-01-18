@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap, tap } from 'rxjs/operators';
 import { Heroe, Publisher } from '../../interfaces/heroe.interface';
 import { HeroesService } from '../../services/heroes.service';
@@ -35,20 +35,25 @@ export class AgregarComponent implements OnInit {
   idHeroe: string = '';
 
   constructor( private _heroesService: HeroesService,
-               private activatedRoute: ActivatedRoute) { }
+               private activatedRoute: ActivatedRoute,
+               private router: Router,) { }
 
   saveHero(){
     if( this.heroe.superhero.trim().length === 0){
       return;
     }
     this._heroesService.addHero(this.heroe)
-      .subscribe(heroe => console.log(heroe))       
+      .subscribe(heroe => console.log(heroe)) 
+      
+      this.router.navigate(['/heroes/listado']);     
   }
 
   actualizarHeroe(heroe: Heroe){
-    this._heroesService.updateHeroe(this.idHeroe, this.heroe);
-    
-   
+    this._heroesService.updateHeroe(this.idHeroe, this.heroe);  
+  }
+
+  irListado(){
+    this.router.navigate(['/heroes/listado']); 
   }
 
   ngOnInit(): void {
